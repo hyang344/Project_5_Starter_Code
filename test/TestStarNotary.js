@@ -95,7 +95,7 @@ it('lets 2 users exchange stars', async() => {
     let user2 = accounts[2];
     await instance.createStar('Star1', 11, {from: user1});
     await instance.createStar('Star2', 12, {from: user2});
-    await instance.exchangeStars(11, 12);
+    await instance.exchangeStars(11, 12, {from: user1});
     assert.equal(await instance.ownerOf.call(11), user2);
     assert.equal(await instance.ownerOf.call(12), user1);
 });
